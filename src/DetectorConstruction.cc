@@ -296,6 +296,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     log_sideFlange->SetVisAttributes(G4Color::White());
   }
 
+  //PIPs detectors inside JENSA
   if(Si_monitor){
 
     G4Tubs* solidSiMon = new G4Tubs("solid_SiMon", 0, 6.9*mm, 0.5*mm, 0, 360*deg); 
@@ -383,23 +384,23 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4LogicalVolume* logical_IC_chamber = new G4LogicalVolume(IC_chamber, aluminum, "IC_chamber_log");
     new G4PVPlacement(0, G4ThreeVector(0,0,dist_to_IC+33.5), logical_IC_chamber ,"IC_chamber_phys", logical_world, false, 0, true);
   
-    //IC window - Kapton foil
+    //IC window - Mylar foil
     G4double window_thick = 4.0*um;
     G4Tubs* IC_window = new G4Tubs("IC window", 0, 5.0*cm, (window_thick/2), 0, CLHEP::twopi);
     G4LogicalVolume* logical_IC_window = new G4LogicalVolume(IC_window, mylar, "IC_window_log");
     new G4PVPlacement(0, G4ThreeVector(0,0,dist_to_IC-0.1), logical_IC_window ,"IC_window_phys", logical_world, false, 0, true);
 
-    //IC gas_1 - Isobutane
+    //IC gas_1 - CF4
     G4Tubs* IC_gas_one = new G4Tubs("IC_gas_1", 0, 5.0*cm, (gas_thick_one/2)*mm, 0, CLHEP::twopi); 
     G4LogicalVolume* logical_IC_gas_one = new G4LogicalVolume(IC_gas_one, cf4, "IC_gas_1_log");
     new G4PVPlacement(0, G4ThreeVector(0,0,(dist_to_IC+gas_thick_one/2)*mm), logical_IC_gas_one ,"IC_gas_1_phys", logical_world, false, 0, true);
 
-    //IC gas_dE - Isobutane
+    //IC gas_dE - CF4
     G4Tubs* IC_gas_dE = new G4Tubs("IC_gas_dE", 0, 5.0*cm, (gas_thick_dE/2)*mm, 0, CLHEP::twopi); 
     G4LogicalVolume* logical_IC_gas_dE = new G4LogicalVolume(IC_gas_dE, cf4, "IC_gas_dE_log");
     new G4PVPlacement(0, G4ThreeVector(0,0,(dist_to_IC+gas_thick_one+gas_thick_dE/2)*mm), logical_IC_gas_dE ,"IC_gas_dE_phys", logical_world, false, 0, true);
 
-    //IC gas_2 - Isobutane
+    //IC gas_2 - CF4
     G4Tubs* IC_gas_two = new G4Tubs("IC_gas_2", 0, 5.0*cm, (gas_thick_two/2)*mm, 0, CLHEP::twopi); 
     G4LogicalVolume* logical_IC_gas_two = new G4LogicalVolume(IC_gas_two, cf4, "IC_gas_2_log");
     new G4PVPlacement(0, G4ThreeVector(0,0,(dist_to_IC+gas_thick_one+gas_thick_dE+gas_thick_two/2)*mm), logical_IC_gas_two ,"IC_gas_2_phys", logical_world, false, 0, true);
