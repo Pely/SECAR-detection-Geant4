@@ -1,0 +1,34 @@
+/control/verbose 0
+/tracking/verbose 0
+/event/verbose 0
+
+
+/run/numberOfThreads 4
+/run/initialize
+/run/printProgress 20000
+
+
+################################################
+# source 
+################################################
+/gps/particle neutron     #particle Type 
+
+
+# Position Distribution
+/gps/pos/type Beam 
+/gps/pos/shape Circle
+/gps/pos/radius 2.54 cm
+/gps/pos/centre 0.0 0.0 -25.0 mm
+
+# angular distribution
+/gps/direction 0 0 1
+
+# energy distribution
+/gps/ene/type Gauss
+/gps/ene/mono 2.0 MeV
+/gps/ene/sigma 0.000001 MeV
+
+################################################
+# Running
+################################################
+/run/beamOn 200000

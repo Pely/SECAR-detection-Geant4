@@ -1,0 +1,19 @@
+####
+#### 56Co beam
+####
+
+/gps/verbose 0
+
+/gps/particle ion
+/gps/ion 27 56 21 0 
+
+/gps/pos/type Plane      
+/gps/pos/shape Circle
+/gps/pos/radius 0.75 mm
+/gps/pos/centre 0.0 0.0 -1.0 cm
+/gps/direction 0 0 1
+
+/gps/ene/type Gauss
+/gps/energy 300 MeV
+/gps/ene/sigma 0.42 MeV
+

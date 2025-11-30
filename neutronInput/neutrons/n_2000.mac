@@ -1,0 +1,37 @@
+#
+# Macro file for monoenergetic neutrons
+#
+
+#/control/verbose 2
+#/event/verbose 4
+#/run/verbose 2
+
+/run/numberOfThreads 3
+/run/initialize
+
+#   particle type
+/gps/particle neutron
+
+#   energy properties
+/gps/ene/type Mono
+/gps/ene/mono 2000 keV
+
+#    direction, position, angular dist
+/gps/direction 0 0 1
+/gps/position 0 0 30.0 cm
+/gps/pos/type Point # probably redundant as this is by default
+/gps/ang/type iso
+/gps/ang/mintheta 0 deg
+/gps/ang/maxtheta 0 deg
+/gps/ang/minphi 0 deg
+/gps/ang/maxphi 360 deg
+
+#simulates 10 primary particles in 1 event 
+#/gps/number 10
+#/run/beamOn 1 
+
+#simulates 1 primary particle in each of the 10 events 
+/gps/number 1
+/run/printProgress 20000
+/run/beamOn 100000
+

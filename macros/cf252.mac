@@ -1,0 +1,26 @@
+#
+# Macro file for 252Cf source 
+#
+
+#/control/verbose 2
+#/event/verbose 4
+#/run/verbose 0
+#/tracking/verbose 2
+#/process/em/verbose 0
+#/process/had/verbose 0
+#/process/list all
+
+/run/numberOfThreads 3
+#/run/setCut 1 mm
+/run/initialize
+
+#/process/inactivate RadioactiveDecayBase
+#/process/inactivate hadElastic
+
+/gun/particle ion
+/gun/ion 98 252
+/gun/energy 0. MeV
+
+/run/printProgress 10000000
+/run/beamOn 100000000
+

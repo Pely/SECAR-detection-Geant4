@@ -1,0 +1,132 @@
+#/control/execute init_vis.mac
+/run/initialize
+/control/verbose 1
+/tracking/verbose 0 
+/event/verbose 0
+/gps/particle neutron
+#/gps/pos/confine FeFoil
+/gps/ang/type iso
+#/gps/pos/type Point
+## Fall2020 Cf-252
+#/gps/pos/centre 0.5 0 -3.0861 cm 
+## March2021 offset Cf-252
+#/gps/pos/centre -.086525 2.444 .46185 cm
+#/gps/pos/centre -.04 2.244 .51185 cm
+## March2021 center Cf-252
+#/gps/pos/centre -0.026434	0.006992 .0046185 m
+## June2021 center Cf-252
+#/gps/pos/centre -0.003328 -0.008639 .01197 m
+#/gps/pos/centre -0.003328 -0.008639 .013875 m
+#/gps/pos/centre -0.003328 -.01277 0.012427 m
+#/gps/pos/centre -0.0026957 -0.011836752 0.00949570000 m
+/gps/pos/centre 0.0038846 0.0079054 -.00182 m
+/gps/pos/type Volume
+/gps/pos/shape Cylinder
+/gps/pos/radius .01 cm
+/gps/pos/halfz 1. um
+/run/printProgress 500000
+
+#/gps/ene/type User
+#/gps/hist/type energy
+#/gps/hist/point 0 0
+#/gps/hist/point .025 .240
+#/gps/hist/point .525 .6578
+#/gps/hist/point 1.025 .5476
+#/gps/hist/point 1.525 .397
+#/gps/hist/point 2.025 .271
+#/gps/hist/point 2.525 .179
+#/gps/hist/point 3.025 .11598
+#/gps/hist/point 3.525 .07385
+#/gps/hist/point 4.025 .04648
+#/gps/hist/point 4.525 .02898
+#/gps/hist/point 5.025 .01793
+#/gps/hist/point 5.525 .01103
+#/gps/hist/point 6.025 .006747
+#/gps/hist/point 6.525 .004108
+#/gps/hist/point 7.025 .002491
+#/gps/hist/point 7.525 .001505
+#/gps/hist/point 8.025 .0009067
+#/gps/hist/point 8.525 .0005446
+#/gps/hist/point 9.025 .0003262
+#/gps/hist/point 9.525 .0001949
+#/gps/hist/point 10.025 .000116
+#/gps/hist/point 10.525 0
+
+/gps/ene/type Arb
+/gps/hist/type arb
+/gps/hist/point 0.0075 0.0514053
+/gps/hist/point 0.025 0.0983495
+/gps/hist/point 0.045 0.13175
+/gps/hist/point 0.065 0.156438
+/gps/hist/point 0.085 0.176633
+/gps/hist/point 0.105 0.193635
+/gps/hist/point 0.125 0.208504
+/gps/hist/point 0.15 0.224589
+/gps/hist/point 0.18 0.241
+/gps/hist/point 0.21 0.255237
+/gps/hist/point 0.24 0.267484
+/gps/hist/point 0.28 0.28124
+/gps/hist/point 0.33 0.295072
+/gps/hist/point 0.38 0.306416
+/gps/hist/point 0.43 0.315034
+/gps/hist/point 0.48 0.322428
+/gps/hist/point 0.53 0.32723
+/gps/hist/point 0.58 0.331268
+/gps/hist/point 0.63 0.33392
+/gps/hist/point 0.68 0.33561
+/gps/hist/point 0.73 0.33608
+/gps/hist/point 0.78 0.335714
+/gps/hist/point 0.83 0.335338
+/gps/hist/point 0.88 0.33394
+/gps/hist/point 0.93 0.33184
+/gps/hist/point 1.0025 0.328446
+/gps/hist/point 1.1 0.32205
+/gps/hist/point 1.2 0.314902
+/gps/hist/point 1.3 0.305967
+/gps/hist/point 1.4 0.296733
+/gps/hist/point 1.5 0.287347
+/gps/hist/point 1.6 0.27704
+/gps/hist/point 1.7 0.26658
+/gps/hist/point 1.8 0.25612
+/gps/hist/point 1.9 0.24566
+/gps/hist/point 2.05 0.230201
+/gps/hist/point 2.25 0.210075
+/gps/hist/point 2.45 0.19051
+/gps/hist/point 2.65 0.172306
+/gps/hist/point 2.85 0.1554
+/gps/hist/point 3.1 0.135872
+/gps/hist/point 3.4 0.114806
+/gps/hist/point 3.7 0.0965607
+/gps/hist/point 4 0.0807777
+/gps/hist/point 4.3 0.0673343
+/gps/hist/point 4.6 0.0559287
+/gps/hist/point 4.9 0.0463813
+/gps/hist/point 5.3 0.0361118
+/gps/hist/point 5.8 0.0262344
+/gps/hist/point 6.3 0.0189716
+/gps/hist/point 6.8 0.0136668
+/gps/hist/point 7.3 0.00981244
+/gps/hist/point 7.8 0.00703602
+/gps/hist/point 8.3 0.00504076
+/gps/hist/point 8.8 0.00361328
+/gps/hist/point 9.3 0.00258852
+/gps/hist/point 9.8 0.00185381
+/gps/hist/point 10.3 0.00132481
+/gps/hist/point 10.8 0.000947368
+/gps/hist/point 11.3 0.000677014
+/gps/hist/point 11.8 0.000483758
+/gps/hist/point 12.3 0.000345126
+/gps/hist/point 12.8 0.000246052
+/gps/hist/point 13.3 0.00017495
+/gps/hist/point 13.8 0.000124379
+/gps/hist/point 14.325 8.69007e-05
+/gps/hist/point 15.25 4.81996e-05
+/gps/hist/point 16.4 2.15184e-05
+/gps/hist/point 17.4 1.08596e-05
+/gps/hist/point 18.5 5.0966e-06
+/gps/hist/point 19.55 2.42207e-06
+/gps/hist/inter Lin
+#/run/beamOn 200000000
+#/run/beamOn 400000000
+#/run/beamOn 100
+/run/beamOn 2000000000

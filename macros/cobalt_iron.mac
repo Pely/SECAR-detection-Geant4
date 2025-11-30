@@ -1,0 +1,88 @@
+####
+#### 58Fe beam
+####
+
+/tracking/verbose 0
+/event/verbose 0
+/run/initialize
+/gps/verbose 0
+/run/printProgress 2000
+
+/gps/particle ion
+/gps/ion 26 58 21 0 
+
+/gps/pos/type Plane      
+/gps/pos/shape Circle
+/gps/pos/radius 0.5 mm
+/gps/pos/centre 0.0 0.0 0.0 cm
+/gps/ang/type iso
+/gps/direction 0 0 1
+
+/gps/ene/type Gauss
+#/gps/energy 202.8 MeV
+/gps/energy 203.3 MeV #Energy from Lise after target
+/gps/ene/sigma 0.73 MeV
+
+####
+#### 58Co recoil
+####
+
+/gps/source/add 0.4
+/gps/particle ion
+/gps/ion 27 58 21 0 
+
+/gps/pos/type Plane      
+/gps/pos/shape Circle
+/gps/pos/radius 0.5 mm
+/gps/pos/centre 0.0 0.0 0.0 cm
+/gps/ang/type iso
+/gps/direction 0 0 1
+
+/gps/ene/type Gauss
+#/gps/energy 195.0 MeV
+/gps/energy 196.15 MeV #Energy from Lise after target
+/gps/ene/sigma 1.5 MeV
+
+####
+#### 59Co recoil
+####
+
+/gps/source/add 0.4
+/gps/particle ion
+/gps/ion 27 59 21 0 
+
+/gps/pos/type Plane      
+/gps/pos/shape Circle
+/gps/pos/radius 0.5 mm
+/gps/pos/centre 0.0 0.0 0.0 cm
+/gps/ang/type iso
+/gps/direction 0 0 1
+
+/gps/ene/type Gauss
+#/gps/energy 198.7 MeV
+/gps/energy 199.69 MeV #Energy from Lise after target
+/gps/ene/sigma 0.93 MeV
+
+####
+#### 58Fe leaky beam
+####
+
+/gps/source/add 0.6
+/gps/particle ion
+/gps/ion 26 58 21 0 
+
+/gps/pos/type Plane      
+/gps/pos/shape Circle
+/gps/pos/radius 0.5 mm
+/gps/pos/centre 0.0 0.0 0.0 cm
+/gps/ang/type iso
+/gps/direction 0 0 1
+
+/gps/ene/type Gauss
+#/gps/energy 195.3 MeV
+/gps/energy 196.15 MeV #Energy from Lise after target
+/gps/ene/sigma 0.3 MeV
+
+/run/beamOn 100000
+
+

@@ -1,0 +1,14 @@
+bld_an/
+bld_recoil/
+bld_neut_eff/
+bld_src/
+bld_reac/
+neutronInput/pn_distributions/
+neutronInput/*.txt
+cadFiles/
+*.stl
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+*.swp

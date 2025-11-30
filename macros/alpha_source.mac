@@ -1,0 +1,31 @@
+/run/initialize
+
+/gps/particle ion 
+/gps/ion 2 4 2 0
+#/gps/pos/type Point
+#/gps/pos/type Plane
+#/gps/pos/shape Circle
+
+# type and distribution of beam
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+##########################
+
+# Set angular distribution
+/gps/ang/type cos
+/gps/ang/mintheta 0. deg
+/gps/ang/maxtheta 180.0 deg 
+/gps/ang/minphi 0. deg
+/gps/ang/maxphi 360. deg
+##########################
+
+# Setting position
+/gps/pos/centre 3.2 0. 0. cm
+/gps/pos/radius 3.0 mm
+
+/gps/ang/type iso
+/gps/energy 5.486 MeV
+
+/run/beamOn 100000000
+
+

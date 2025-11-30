@@ -1,0 +1,97 @@
+#
+# Macro file for monoenergetic neutrons
+#
+
+#/control/verbose 2
+#/event/verbose 4
+#/run/verbose 2
+
+/run/numberOfThreads 3
+/run/initialize
+
+#   particle type
+/gps/particle neutron
+
+#   energy properties
+# energy distribution
+/gps/ene/type User
+/gps/hist/type energy
+/gps/hist/point	0.50	1.72E-01
+/gps/hist/point	0.75	1.72E-01
+/gps/hist/point	1.00	1.72E-01
+/gps/hist/point	1.25	1.72E-01
+/gps/hist/point	1.50	1.72E-01
+/gps/hist/point	1.75	1.72E-01
+/gps/hist/point	2.00	1.72E-01
+/gps/hist/point	2.25	1.72E-01
+/gps/hist/point	2.50	1.72E-01
+/gps/hist/point	2.75	1.72E-01
+/gps/hist/point	3.00	1.72E-01
+/gps/hist/point	3.25	1.72E-01
+/gps/hist/point	3.50	1.72E-01
+/gps/hist/point	3.75	1.72E-01
+/gps/hist/point	4.00	1.72E-01
+/gps/hist/point	4.25	1.72E-01
+/gps/hist/point	4.50	1.72E-01
+/gps/hist/point	4.75	1.72E-01
+/gps/hist/point	5.00	1.72E-01
+/gps/hist/point	5.25	1.72E-01
+/gps/hist/point	5.50	1.72E-01
+/gps/hist/point	5.75	1.72E-01
+/gps/hist/point	6.00	1.72E-01
+/gps/hist/point	6.25	1.72E-01
+/gps/hist/point	6.50	1.72E-01
+/gps/hist/point	6.75	1.72E-01
+/gps/hist/point	7.00	1.72E-01
+/gps/hist/point	7.25	1.72E-01
+/gps/hist/point	7.50	1.72E-01
+/gps/hist/point	7.75	1.72E-01
+/gps/hist/point	8.00	1.72E-01
+/gps/hist/point	8.25	1.72E-01
+/gps/hist/point	8.50	1.72E-01
+/gps/hist/point	8.75	1.72E-01
+/gps/hist/point	9.00	1.72E-01
+/gps/hist/point	9.25	1.72E-01
+/gps/hist/point	9.50	1.72E-01
+/gps/hist/point	9.75	1.72E-01
+/gps/hist/point	10.00	1.72E-01
+/gps/hist/point	10.25	1.72E-01
+/gps/hist/point	10.50	1.72E-01
+/gps/hist/point	11.75	1.72E-01
+/gps/hist/point	11.00	1.72E-01
+/gps/hist/point	11.25	1.72E-01
+/gps/hist/point	11.50	1.72E-01
+/gps/hist/point	11.75	1.72E-01
+/gps/hist/point	12.00	1.72E-01
+/gps/hist/point	12.25	1.72E-01
+/gps/hist/point	12.50	1.72E-01
+/gps/hist/point	12.75	1.72E-01
+/gps/hist/point	13.00	1.72E-01
+/gps/hist/point	13.25	1.72E-01
+/gps/hist/point	13.50	1.72E-01
+/gps/hist/point	13.75	1.72E-01
+/gps/hist/point	14.00	1.72E-01
+/gps/hist/point	14.25	1.72E-01
+/gps/hist/point	14.50	1.72E-01
+/gps/hist/point	14.75	1.72E-01
+/gps/hist/point	15.00	1.72E-01
+
+# direction, position, angular dist
+/gps/direction 0 0 1
+/gps/position 0 0 -31.0 cm
+/gps/pos/type Point # probably redundant as this is by default
+/gps/ang/type iso
+/gps/ang/mintheta 0 deg
+/gps/ang/maxtheta 90 deg # 2pi emission towards the positive z axis
+/gps/ang/minphi 0 deg
+/gps/ang/maxphi 360 deg
+
+#simulates 10 primary particles in 1 event 
+#/gps/number 10
+#/run/beamOn 1 
+
+#simulates 1 primary particle in each of the 10 events 
+/gps/number 1
+/run/printProgress 200000
+/run/beamOn 1000000
+

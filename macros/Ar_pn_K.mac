@@ -1,0 +1,52 @@
+####
+#### 40Ar beam
+####
+
+/tracking/verbose 0
+/event/verbose 0
+/run/initialize
+
+/gps/particle ion
+/gps/ion 18 40 14 0 
+
+/gps/pos/type Plane      
+/gps/pos/shape Circle
+/gps/pos/radius 0.5 mm
+/gps/pos/centre 0.0 0.0 0.0 cm
+/gps/ang/type iso
+/gps/direction 0 0 1
+
+/gps/ene/type Gauss
+
+/gps/energy 99.5614 MeV
+/gps/ene/sigma 0.372913 MeV 
+
+#Emean and sigma is calculated from fitting a gaussian to the distribution after target
+
+####
+#### 40K recoil
+####
+
+/gps/source/add 0.01
+/gps/particle ion
+/gps/ion 19 40 15 0 
+
+/gps/pos/type Plane      
+/gps/pos/shape Circle
+/gps/pos/radius 0.5 mm
+/gps/pos/centre 0.0 0.0 0.0 cm
+/gps/ang/type iso
+/gps/direction 0 0 1
+
+/gps/ene/type Gauss
+
+/gps/energy 93.9191 MeV
+/gps/ene/sigma 0.958472 MeV 
+
+#Emean and sigma is calculated from fitting a gaussian to the distribution after target
+
+/run/beamOn 101000
+
+
+
+

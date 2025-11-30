@@ -1,0 +1,21 @@
+# Macro file for LENDA example
+#
+# Can be run in batch, without graphic
+# or interactively: Idle> /control/execute run.mac
+#
+/run/numberOfThreads 2
+# Initialize kernel
+/run/initialize
+/run/printProgress 20
+#
+/control/verbose 0
+/run/verbose 2
+/event/verbose 0
+/tracking/verbose 0
+#/process/had/particle_hp/skip_missing_isotopes true
+#/process/had/particle_hp/do_not_adjust_final_state true
+#/process/had/particle_hp/verbose 2
+#
+# neutrons in random directions based on reaction kinematics
+#
+/run/beamOn 100

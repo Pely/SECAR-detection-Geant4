@@ -1,0 +1,31 @@
+####
+#### 58Fe beam
+####
+
+/tracking/verbose 0
+/event/verbose 0
+/run/initialize
+/gps/verbose 0
+/run/printProgress 20000000
+
+/gps/particle ion
+/gps/ion 26 58 21 0 
+
+/gps/pos/type Plane      
+/gps/pos/shape Circle
+/gps/pos/radius 0.75 mm
+/gps/pos/centre 0.0 0.0 -5.0 cm
+/gps/ang/type iso
+/gps/direction 0 0 1
+
+/gps/ene/type Gauss
+/gps/energy 219.55 MeV
+/gps/ene/sigma 3.52 MeV
+
+
+####### NOTE ########
+#sigma is calculated as sigma=Eloss/2.355 (FWHM = 2.355*sigma) Eloss at center of target (from lise++)
+
+/run/beamOn 100000000
+
+
