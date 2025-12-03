@@ -76,8 +76,17 @@ int main(int argc, char** argv)
   G4int seed = time( NULL );
   G4Random::setTheSeed( seed );
 
-  auto* pRunManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
-  // pRunManager->SetNumberOfThreads(1);
+
+  G4RunManager* pRunManager = nullptr;
+  if (ui) {
+    // Interactive mode → force single-thread run manager
+    pRunManager = new G4RunManager;
+    pRunManager->SetNumberOfThreads(1);
+  } else {
+    pRunManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
+  }
+  
+  // 
   // User action initialization
   AnalysisManager* analysisMan = new AnalysisManager();
 
@@ -112,14 +121,15 @@ int main(int argc, char** argv)
     UImanager->ApplyCommand("/control/execute macros/vis.mac");
     ui->SessionStart();
     delete ui;
-  }    
+  }     
+  
   delete visManager;
-  delete pRunManager; 
-  delete analysisMan; 
+  //delete pRunManager;
 
   //Stop the time benchmark here
   theTimer->Stop();
   G4cout << "The simulation took: " << theTimer->GetRealElapsed()/60 << " m to run (real time)"<< G4endl;
 
+  
   return 0;
 }

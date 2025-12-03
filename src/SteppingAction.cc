@@ -78,7 +78,6 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
     // tarEkin = aTrack->GetKineticEnergy();
     tarEkin = aStep->GetPostStepPoint()->GetKineticEnergy();
   }
-
   if(volumeName=="Strip_phys")
   {
     G4ThreeVector hitStripPos = initialPoint->GetPosition();
@@ -94,13 +93,13 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
       //Comment out the following line if doing a reaction and invoke next if statement
       // if(theta_n_tar<0.6)fEventAction->AddTarget(Z, A, tarEkin, hitTarPos, tarDirection, tarToF, ekin_n_tar, theta_n_tar); 
     }
-    else { theta_n_tar = 0.0; ekin_n_tar = 0.0; }
+    else {theta_n_tar = 0.0; ekin_n_tar = 0.0; }
     //if(A==58) { // (Z==27 && A==58) store the recoil 
     // ekin_r_tar = tarEkin; theta_r_tar = tarDirection.theta(); 
 
     //The ekin_n_tar and theta_n_tar data stored here are not useful since they can be distinguished from Z,A 
     //I am keeping this format for now though not efficient
-    if(Z==11) {fEventAction->AddTarget(Z, A, tarEkin, tarEdep, hitTarPos, tarDirection, stripEkin, hitStripPos, stripDirection, tarToF, ekin_n_tar, theta_n_tar); }
+    if(Z!=36) {fEventAction->AddTarget(Z, A, tarEkin, tarEdep, hitTarPos, tarDirection, stripEkin, hitStripPos, stripDirection, tarToF, ekin_n_tar, theta_n_tar); }
   }
 
   // Flag for turning on/off the Liquid Scintillators. 

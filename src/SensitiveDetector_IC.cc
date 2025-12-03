@@ -23,7 +23,7 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
-// Author: Pelagia Tsintari, tsint1p@cmich.edu 
+// Author: Pelagia Tsintari, pelagia.tsin@gmail.com
 //
 // Code based on the advanced example radioprotection
 

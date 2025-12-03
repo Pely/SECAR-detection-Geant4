@@ -45,6 +45,8 @@ public:
 
   void Target(G4int ZZ, G4int AA, G4double energy, G4double edep, G4double posx, G4double posy, G4double posz, G4double th, G4double phi, G4double energy_str, G4double posx_str, G4double posy_str, G4double posz_str, G4double th_str, G4double phi_str, G4double tof, G4double e_n, G4double th_n);
 
+  void Detector_SiMon(G4double edep, G4double energy, G4double AA, G4double ZZ);
+  
   void Detector_DSSD(G4double edep, G4double energy, G4double AA, G4double ZZ, G4double th, G4double phi, G4double posx, G4double posy);//, G4int coinc, G4double energy_k, G4double energy_n, G4double pn_x, G4double pn_y, G4double th_n);
   
   void Detector_IC(G4double edep, G4double energy, G4double AA, G4double ZZ);

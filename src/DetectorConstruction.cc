@@ -125,7 +125,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     stainless->AddElement(Ni,11*perCent);
     //stainless->AddElement(Ni,8*perCent);*/
 
-  G4Material* helium = new G4Material("HeliumGas",0.0000014233*g/cm3,1,kStateGas,293.15*kelvin); //,16.331*atmosphere
+  G4Material* helium = new G4Material("HeliumGas",0.00272*g/cm3,1,kStateGas,293.15*kelvin); //,16.331*atmosphere
   helium->AddElement(He, 1.0);
 
   G4RotationMatrix* rotX90 = new G4RotationMatrix(); rotX90->rotateX(90*deg);
@@ -157,15 +157,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     // G4double Tar_z = (0.5*3.914)*um; //4.2*um ;//4.2021505*um = 0.3908 mg/cm2; //3.7=HDPE=6.8, 1.82 C
     //4.62*um; used during the experiment (it was wrong)
     // G4double Tar_z = 137.0*mm; //Extended gas target effective thickness He
-
     // G4Box* Target = new G4Box("Target",Tar_x,Tar_y,Tar_z/2);
 
-    //Jet gas target
-    G4double Tar_y = 3.00*mm;
-    G4double Tar_z = 10.0*mm; 
+    // Jet gas target
+    G4double Tar_d = 3.30*mm; // nozzle E
+    G4double Tar_z = 10*mm; // distance nozzle to catcher - not sure
 
-    G4Tubs* Target = new G4Tubs("Target", 0, Tar_y/2, Tar_z/2, 0, 360*deg);
-    G4LogicalVolume* logical_Tar = new G4LogicalVolume(Target, h_tar, "Tar_log", 0,0,0); //polyethylene
+    G4Tubs* Target = new G4Tubs("Target", 0, Tar_d/2, Tar_z/2, 0, 360*deg);
+    G4LogicalVolume* logical_Tar = new G4LogicalVolume(Target, helium, "Tar_log", 0,0,0); 
 
     //Visualisation attributes
     new G4PVPlacement(rotX90, G4ThreeVector(0,0,0), logical_Tar, "Tar_phys", logical_world, false, 0, true);
@@ -299,10 +298,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //PIPs detectors inside JENSA
   if(Si_monitor){
 
-    G4Tubs* solidSiMon = new G4Tubs("solid_SiMon", 0, 6.9*mm, 0.5*mm, 0, 360*deg); 
+    G4Tubs* solidSiMon = new G4Tubs("solid_SiMon", 0, 6.91*mm, 0.5*mm, 0, 360*deg); 
     G4LogicalVolume* log_SiMon = new G4LogicalVolume(solidSiMon, silicon, "SiMon_log");
-    new G4PVPlacement(rotY310, G4ThreeVector(80*mm,0.0,120*mm), log_SiMon, "SiMon_L_phys", logical_world, false, 0, true);
-    new G4PVPlacement(rotY50, G4ThreeVector(-80*mm,0.0,120*mm), log_SiMon, "SiMon_R_phys", logical_world, false, 1, true);
+    new G4PVPlacement(rotY310, G4ThreeVector(68.101*mm,0.0,57.14*mm), log_SiMon, "SiMon_L_phys", logical_world, false, 0, true);
+    new G4PVPlacement(rotY50, G4ThreeVector(-68.101*mm,0.0,57.14*mm), log_SiMon, "SiMon_R_phys", logical_world, false, 1, true);
     log_SiMon->SetVisAttributes(G4Color::Yellow());
 
   }

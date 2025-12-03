@@ -24,60 +24,46 @@
 // ********************************************************************
 //
 // Author: Pelagia Tsintari, pelagia.tsin@gmail.com
+//
+//
 // 
-// Code based on basic example B02
 
+#ifndef SensitiveDetector_SiMon_h
+#define SensitiveDetector_SiMon_h 1
 
-#include "SensitiveDetectorHit_IC.hh"
-#include "G4UnitsTable.hh"
-#include "G4VVisManager.hh"
-#include "G4Circle.hh"
-#include "G4Colour.hh"
-#include "G4VisAttributes.hh"
+#include "G4VSensitiveDetector.hh"
 
-#include <iomanip>
+#include "SensitiveDetectorHit_SiMon.hh"
+#include "AnalysisManager.hh"
+#include <vector>
 
-// THIS IS NECESSARY FOR MT MODE
-G4ThreadLocal G4Allocator<SensitiveDetectorHit_IC>* SensitiveDetectorHit_ICAllocator=0;
+class G4Step;
+class G4HCofThisEvent;
 
-SensitiveDetectorHit_IC::SensitiveDetectorHit_IC()
- : G4VHit(),
-   fId(0),
-   fEdep(0),
-   fEkin(0.)
-{}
-
-SensitiveDetectorHit_IC::~SensitiveDetectorHit_IC() 
-{}
-
-SensitiveDetectorHit_IC::SensitiveDetectorHit_IC(const SensitiveDetectorHit_IC& right)
-  : G4VHit()
+class SensitiveDetector_SiMon : public G4VSensitiveDetector
 {
-  fId         = right.fId;
-  fEkin       = right.fEkin;
-  fEdep       = right.fEdep;
-}
+  public:
+    SensitiveDetector_SiMon(const G4String& name, const G4String& hitsCollectionName, AnalysisManager*);
+    virtual ~SensitiveDetector_SiMon();
+  
+    // methods from base class
+    virtual void   Initialize(G4HCofThisEvent* hitCollection);
+    virtual G4bool ProcessHits(G4Step* step, G4TouchableHistory* history);
+    virtual void   EndOfEvent(G4HCofThisEvent* hitCollection);
 
-const SensitiveDetectorHit_IC& SensitiveDetectorHit_IC::operator=(const SensitiveDetectorHit_IC& right)
-{
-  fId         = right.fId;
-  fEdep       = right.fEdep;
-  fEkin       = right.fEkin;
-  return *this;
-}
+    void SetParticleID(G4int id) { fParticleID = id; };
+    G4int GetParticleID() const { return fParticleID; };
 
-G4int SensitiveDetectorHit_IC::operator==(const SensitiveDetectorHit_IC& right) const
-{
-  return ( this == &right ) ? 1 : 0;
-}
+    
 
-void SensitiveDetectorHit_IC::Draw()
-{}
+  private:
+    SensitiveDetector_SiMonHitsCollection* fHitsCollection;
+    AnalysisManager* analysis;
+   
+    G4int fParticleID;
+    G4int count;
+    
 
-void SensitiveDetectorHit_IC::Print()
-{
-  G4cout<< "HIT: "<< fId << std::setw(6) <<  "Ekin: " <<G4BestUnit(fEkin,"Energy")<< G4endl;
-}
-//the setw() command sets the space from left to right as to where to write on the terminal
- 
+};
 
+#endif

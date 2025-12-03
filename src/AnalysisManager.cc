@@ -153,6 +153,13 @@ void AnalysisManager::Book()
   }
   manager -> FinishNtuple();
 
+  manager -> CreateNtuple("SiMon", "SiMon variables");
+  manager -> CreateNtupleDColumn(7,"totalEdep");
+  manager -> CreateNtupleDColumn(7,"ekin");
+  manager -> CreateNtupleDColumn(7,"A");
+  manager -> CreateNtupleDColumn(7,"Z");
+  manager -> FinishNtuple();
+
   factoryOn = true;    
 }
 
@@ -267,6 +274,17 @@ void AnalysisManager::Target_LS_coinc(G4double energy_t, G4double th_t, G4double
     manager -> FillNtupleDColumn(6, (i*j)+13, edep[i]);
   }
   manager -> AddNtupleRow(6);
+}
+
+void AnalysisManager::Detector_SiMon(G4double edep, G4double energy, G4double AA, G4double ZZ)
+{
+  G4AnalysisManager* manager = G4AnalysisManager::Instance();
+  manager->SetDefaultFileType("root");
+  manager -> FillNtupleDColumn(7, 0, edep);
+  manager -> FillNtupleDColumn(7, 1, energy);
+  manager -> FillNtupleDColumn(7, 2, AA);
+  manager -> FillNtupleDColumn(7, 3, ZZ);
+  manager -> AddNtupleRow(7); 
 }
 
 void AnalysisManager::Finish() 

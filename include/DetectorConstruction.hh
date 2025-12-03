@@ -66,16 +66,16 @@ private:
     // When source is false all of the covering material is set to vaccum, thus one can still get what was 
     // emmitted from the target location.
     G4bool target = true;
-    G4bool stripper = true;
     G4bool Si_monitor = true;
+    G4bool stripper = false;
     G4bool LScin = false;
     G4bool coverLS = false;
     G4bool MCP = false;
-    G4bool IC = true;
+    G4bool IC = false;
         G4double gas_thick_one = 12.7; //12.7*mm;
         G4double gas_thick_dE = 50.8; //50.8*mm
         G4double gas_thick_two = 3.2; //3.2*mm 
-    G4bool DSSD = true;
+    G4bool DSSD = false;
     //G4bool LENDA = false;
     
     //Reading the neutron detectors' map
